@@ -1,6 +1,6 @@
 // КТ М125 квиз — работа без сети. Сначала сеть (чтобы сразу видеть обновления), при её отсутствии — сохранённая копия.
-const C = 'm125-v3.0';
-const FILES = ['./', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png'];
+const C = 'm125-v3.1';
+const FILES = ['./', 'manifest.webmanifest', 'icon-180.png', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', e => { self.skipWaiting(); e.waitUntil(caches.open(C).then(c => c.addAll(FILES)).catch(() => {})); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== C).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {
